@@ -34,9 +34,25 @@ import { NgxPlaidLinkModule } from "ngx-plaid-link";
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+```    
+
+#### 3a) The easy way, the `ngxPlaidLink` Directives
+
+```html
+<button ngxPlaidLink
+  env="sandbox"
+  publicKey="YOURPUBLICKEY"
+  institution=""
+  [countryCodes]="['US', 'CA', 'GB']"
+  (Success)="onPlaidSuccess($event)"
+  (Exit)="onPlaidExit($event)"
+  (Load)="onPlaidLoad($event)"
+  (Event)="onPlaidEvent($event)"
+  (Click)="onPlaidClick($event)"
+>Link Your Bank Account</button>
 ```
 
-#### 3a) The easy way, with the provided button
+#### 3b) The easy way, with the provided button
 
 ```html
 <mr-ngx-plaid-link-button
@@ -54,7 +70,7 @@ export class AppModule {}
 ></mr-ngx-plaid-link-button>
 ```
 
-#### 3b) The less easy way, implement yourself
+#### 3c) The less easy way, implement yourself
 
 Since most of the functionality is through the service you can imlpement this yourself to customize to your needs further.
 
